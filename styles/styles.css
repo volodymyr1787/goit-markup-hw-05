@@ -9,8 +9,6 @@
     --grey-fon: #F5F4FA;
     --light-fon: #EEEEEE;
     --logo-fill: #AFB1B8;
-
-    --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,
@@ -113,7 +111,9 @@ img {
 
     text-decoration: none;
 
-    transition: var(--animation);
+    transition-property: color ;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .item {
@@ -133,6 +133,16 @@ img {
 
 .site-nav .link.current {
     color: var(--accent-color); 
+}
+
+.site-nav .link.current::after {
+    display: flex;
+    content: "";
+    position: relative;
+    top: 32px;
+    height: 4px;
+    border-radius: 2px;
+    background: #2196F3;
 }
 
 /* контакти */
@@ -159,7 +169,9 @@ img {
 
     text-decoration: none;
 
-    transition: var(--animation);
+    transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts .link:hover,
@@ -171,6 +183,10 @@ img {
 
 .contact-logo {
     fill: var(--item-text-color);
+
+    transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts .link:hover .contact-logo,
@@ -253,7 +269,14 @@ img {
 
 }
 
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 .modal {
+    display: block;
     position: absolute;
     width: 528px;
     height: 581px;
@@ -261,7 +284,7 @@ img {
     top: 50%;
     transform: translate(-50%, -50%);
     
-    background: #FFFFFF;
+    background: var(--primary-white-fon);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
@@ -273,9 +296,15 @@ img {
     width: 30px;
     height: 30px;
 
-    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-white-fon);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+
+    cursor: pointer;
 }
 
 /* section */
@@ -365,6 +394,7 @@ img {
     display: flex;
     align-items: flex-end;
     position: relative;
+    z-index: 10;
 }
 
 .box {
@@ -372,6 +402,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 100;
     
     width: 100%;
 
@@ -458,7 +489,9 @@ img {
     background-color: var(--primary-white-fon);
     border-radius: 50%;
 
-    transition: var(--animation);
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .soc-link:hover,
@@ -497,6 +530,10 @@ img {
     background-color: var(--primary-white-fon);
     border: 1px solid var(--logo-fill);
     border-radius: 4px;
+
+    transition-property: border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partner-link:hover,
@@ -507,7 +544,9 @@ img {
 .partner-logo {
     fill: var(--logo-fill);
 
-    transition: var(--animation);
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partner-link:hover .partner-logo,
@@ -552,7 +591,9 @@ img {
     color: var(--white-text-color);
     text-decoration: none;
 
-    transition: var(--animation);
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-list .link-map:hover,
@@ -566,7 +607,9 @@ img {
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
 
-    transition: var(--animation);
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-list .link:hover,
@@ -640,7 +683,9 @@ img {
     
     cursor: pointer;
 
-    transition: var(--animation);
+    transition-property: color border background;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-list .btn:hover,
@@ -649,7 +694,7 @@ img {
     
     background: var(--accent-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
+
 }
 
 
@@ -664,7 +709,9 @@ img {
     display: block;
     text-decoration: none;
 
-    transition: var(--animation);
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-link:hover,
@@ -735,6 +782,11 @@ img {
     padding: 63px 24px;
     
     background: rgba(33, 150, 243, 0.9);
+
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
  .project-link:hover .overlay {
