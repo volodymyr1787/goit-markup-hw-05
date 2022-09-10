@@ -139,7 +139,7 @@ img {
     display: flex;
     content: "";
     position: relative;
-    top: 32px;
+    top: 33px;
     height: 4px;
     border-radius: 2px;
     background: #2196F3;
