@@ -136,7 +136,7 @@ img {
 }
 
 .site-nav .link.current::after {
-    display: flex;
+    display: block;
     content: "";
     position: relative;
     top: 33px;
